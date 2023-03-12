@@ -19,9 +19,14 @@ app.get('/', (req, res) => {
   res.render('index', { restaurants: restaurantsList.results })
 })
 
-app.get('/restaurants/1', (req, res) => {
-  res.render('show')
+//從json篩選資料回傳到樣板引擎
+app.get('/restaurants/:restaurants_id', (req, res) => {
+  const restaurants = restaurantsList.results.find(
+    restaurants => restaurants.id.toString() === req.params.restaurants_id
+  )  
+  res.render('show', { restaurants: restaurants })
 })
+
 // start and listen on the Express server
 app.listen(port, () => {
   console.log(`Express is listening on http://localhost:${port}`)
