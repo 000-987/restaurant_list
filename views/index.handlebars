@@ -21,15 +21,15 @@
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
-        <a href="/restaurants/1" class="text-secondary">
+        <a href="/{{restaurants.id}}/" class="text-secondary">
           <div class="card mb-3">
-            <img class="card-img-top" src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg"
+            <img class="card-img-top" src="{{restaurants.image}}"
               alt="Sababa 沙巴巴中東美食">
             <div class="card-body p-3">
-              <h6 class="card-title mb-1">Sababa 沙巴巴中東美食</h6>
+              <h6 class="card-title mb-1">{{restaurants.title}}</h6>
 
               <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> 中東料理
+                <i class="fas fa-utensils pr-2"></i> {{restaurants.text}}
               </div>
 
               <span class="badge badge-pill badge-danger font-weight-normal">
