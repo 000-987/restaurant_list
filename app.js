@@ -16,12 +16,20 @@ app.use(express.static('public'))
 // routes setting
 app.get('/', (req, res) => {
   // create a variable to store movieOne
-  const restaurantsOne = {
+  const restaurantsOne = [
+    {
     id: 1,
-    image: 'https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg',
-    title: 'Sababa 沙巴巴中東美食',
-    text:  '中東料理',
-  }
+      title: 'Sababa 沙巴巴中東美食',
+        image: 'https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg',
+          text: '中東料理',
+    },
+  {
+    id: 2,
+      title: '梅子鰻蒲燒專賣店',
+        image: 'https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5628/02.jpg',
+          text: '日本料理',
+    }
+  ]
   res.render('index', { restaurants: restaurantsOne })
 })
 
