@@ -19,11 +19,20 @@ app.get('/', (req, res) => {
   res.render('index', { restaurants: restaurantsList.results })
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.trim()
+  const restaurants = restaurantsList.results.filter(restaurant => {
+    const filteredRestaurants = restaurant.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) ||
+      restaurant.category.includes(keyword)
+    return filteredRestaurants
+  })
+  res.render('index', { restaurants: restaurants, keyword: keyword })
+})
+
 //從json篩選資料回傳到樣板引擎
 app.get('/restaurants/:restaurants_id', (req, res) => {
   const restaurants = restaurantsList.results.find(
-    restaurants => restaurants.id.toString() === req.params.restaurants_id
-  )  
+    restaurants => restaurants.id.toString() === req.params.restaurants_id)
   res.render('show', { restaurants: restaurants })
 })
 
